@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
-import MovieList from './MovieList'
+import MovieListContainer from '../containers/MovieListContainer'
 
 export default class App extends Component {
   constructor() {
     super();
   }
 
-  
-
   render() {
     return (
       <div>
         <h1>Movie Watcher</h1>
-        <MovieList />
+        <MovieListContainer />
       </div>
     )
   }

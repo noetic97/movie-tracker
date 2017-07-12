@@ -16,7 +16,7 @@ const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_
 const store = createStore(
   combineReducers({
     rootReducer,
-    // router: routerReducer
+    router: routerReducer
   }),
   applyMiddleware(middleWare),
   devTools

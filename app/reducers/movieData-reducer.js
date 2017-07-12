@@ -1,15 +1,6 @@
-// export const movieData = (state = [], action) => {
-//   switch (action.type) {
-//     case 'GET_MOVIE_DATA':
-//       return [...state, action.url]
-//       break;
-//     default:
-//       return state;
-//   }
-// }
-export function itemsHasErrored(state = false, action) {
+export const fetchHasErrored = (state = false, action) => {
     switch (action.type) {
-        case 'ITEMS_HAS_ERRORED':
+        case 'FETCH_HAS_ERRORED':
             return action.hasErrored;
 
         default:
@@ -17,9 +8,9 @@ export function itemsHasErrored(state = false, action) {
     }
 }
 
-export function itemsIsLoading(state = false, action) {
+export const fetchIsLoading = (state = false, action) => {
     switch (action.type) {
-        case 'ITEMS_IS_LOADING':
+        case 'FETCH_IS_LOADING':
             return action.isLoading;
 
         default:
@@ -27,10 +18,13 @@ export function itemsIsLoading(state = false, action) {
     }
 }
 
-export function items(state = [], action) {
+export const movies = (state = [], action) => {
     switch (action.type) {
-        case 'ITEMS_FETCH_DATA_SUCCESS':
-            return action.items;
+        case 'MOVIES_FETCH_DATA_SUCCESS':
+            console.log(action.movies.results);
+            return action.movies.results.map(movie => {
+              return Object.assign(movie, {poster_path: `https://image.tmdb.org/t/p/w500${movie.poster_path}`})
+            });
 
         default:
             return state;

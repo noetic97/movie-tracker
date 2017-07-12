@@ -1,15 +1,8 @@
 import { combineReducers } from 'redux';
-// import movieData from './movieData-reducer'
-import { items, itemsHasErrored, itemsIsLoading } from './movieData-reducer.js';
-
+import { movies, fetchHasErrored, fetchIsLoading } from './movieData-reducer.js';
 
 export default combineReducers({
-    items,
-    itemsHasErrored,
-    itemsIsLoading
+    movies,
+    fetchHasErrored,
+    fetchIsLoading
 });
-
-
-// const rootReducer = combineReducers({movieData})
-
-// export default rootReducer

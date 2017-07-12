@@ -1,10 +1,3 @@
-export const getMovieData = (url) => {
-  return {
-    type: 'GET_MOVIE_DATA',
-    url
-  }
-}
-
 export const logBang = (text) => {
   console.log('action fired!');
   return {
@@ -13,43 +6,40 @@ export const logBang = (text) => {
   }
 }
 
-export function itemsFetchData(url) {
+export const fetchMovieData = (url) => {
     return (dispatch) => {
-        dispatch(itemsIsLoading(true));
-
+        dispatch(fetchIsLoading(true));
         fetch(url)
             .then((response) => {
                 if (!response.ok) {
                     throw Error(response.statusText);
                 }
-
-                dispatch(itemsIsLoading(false));
-
+                dispatch(fetchIsLoading(false));
                 return response;
             })
             .then((response) => response.json())
-            .then((items) => dispatch(itemsFetchDataSuccess(items)))
-            .catch(() => dispatch(itemsHasErrored(true)));
+            .then((items) => dispatch(moviesFetchDataSuccess(items)))
+            .catch(() => dispatch(fetchHasErrored(true)));
     };
 }
 
-export function itemsHasErrored(bool) {
+export const fetchHasErrored = (bool) => {
     return {
-        type: 'ITEMS_HAS_ERRORED',
+        type: 'FETCH_HAS_ERRORED',
         hasErrored: bool
     };
 }
 
-export function itemsIsLoading(bool) {
+export const fetchIsLoading = (bool) => {
     return {
-        type: 'ITEMS_IS_LOADING',
+        type: 'FETCH_IS_LOADING',
         isLoading: bool
     };
 }
 
-export function itemsFetchDataSuccess(items) {
+export const moviesFetchDataSuccess = (movies) => {
     return {
-        type: 'ITEMS_FETCH_DATA_SUCCESS',
-        items
+        type: 'MOVIES_FETCH_DATA_SUCCESS',
+        movies
     };
 }

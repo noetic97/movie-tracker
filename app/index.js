@@ -5,13 +5,12 @@ import MovieIndex from './components/movieIndex';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import createHistory from 'history/createBrowserHistory'
-// import { ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-redux';
+import { ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers/rootReducer';
 
 const history = createHistory();
-const middleWare = [thunk];
-// const middleWare = [routerMiddleware(history), thunk];
+const middleWare = [routerMiddleware(history), thunk];
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 
 const store = createStore(
@@ -22,5 +21,7 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <App/>
+    <ConnectedRouter history={history}>
+      <App/>
+    </ConnectedRouter>
   </Provider>, document.getElementById('main'))

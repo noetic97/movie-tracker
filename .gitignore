@@ -1,4 +1,4 @@
 node_modules/
 ./app/bundle.js
 ./app/bundle.js.map
-APIkey.js
+./app/APIkey.js

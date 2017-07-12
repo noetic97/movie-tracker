@@ -89,7 +89,7 @@
 	
 	var store = (0, _redux.createStore)((0, _redux.combineReducers)({
 	  router: _reactRouterRedux.routerReducer
-	}), (0, _redux.applyMiddleware)(middleware), devTools);
+	}), (0, _redux.applyMiddleware)(middleWare), devTools);
 	
 	_reactDom2.default.render(_react2.default.createElement(
 	  _reactRedux.Provider,

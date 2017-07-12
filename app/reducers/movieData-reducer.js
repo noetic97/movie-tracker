@@ -1,9 +1,7 @@
-const movieData = (state = '', action) => {
+const movieData = (state = [], action) => {
   switch (action.type) {
-    case 'LOG_BANG':
-      console.log('reducer is fired!');
-      console.log(action.text);
-      return action.text
+    case 'GET_MOVIE_DATA':
+      return [...state, action.url]
       break;
     default:
       return state;

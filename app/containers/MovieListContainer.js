@@ -1,12 +1,18 @@
 import { connect } from 'react-redux';
-import { logBang } from '../actions';
+import { getMovieData } from '../actions';
 import MovieList from '../components/MovieList';
+
+// const mapStateToProps = (state) => {
+//   return {
+//
+//   }
+// }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    logBang: (text) => {
-      console.log('something');
-      dispatch(logBang(text))
+    getMovieData: (url) => {
+      console.log(url);
+      dispatch(getMovieData(url))
     }
   }
 }

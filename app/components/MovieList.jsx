@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import APIkey from '../../APIkey.js'
 
 class MovieList extends Component {
   constructor() {
@@ -6,7 +7,7 @@ class MovieList extends Component {
   }
 
   fetchMovies() {
-    this.props.getMovieData('fetchURL');
+    this.props.getMovieData('https://api.themoviedb.org/3/movie/now_playing?api_key=dc2d6d8f7f48da44d3c744ca27911bd0&language=en-US&page=1');
   }
 
   render() {

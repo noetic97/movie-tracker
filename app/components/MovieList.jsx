@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import MovieCard from './MovieCard'
 import apiKey from '../APIkey'
 
 class MovieList extends Component {
@@ -11,9 +12,12 @@ class MovieList extends Component {
   }
 
   render() {
+    const movieCardArray = this.props.movieData.map((movie) => {
+      return <MovieCard movieData={ movie } key={movie.id}/>
+    })
     return (
       <section>
-        THIS IS THE MovieList COMPONENT
+        {movieCardArray}
       </section>
     )
   }

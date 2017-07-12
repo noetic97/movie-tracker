@@ -2,11 +2,11 @@ import { connect } from 'react-redux';
 import { fetchMovieData } from '../actions';
 import MovieList from '../components/MovieList';
 
-// const mapStateToProps = (state) => {
-//   return {
-//
-//   }
-// }
+const mapStateToProps = (state) => {
+  return {
+    movieData: state.movies
+  }
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -16,4 +16,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(MovieList)
+export default connect(mapStateToProps, mapDispatchToProps)(MovieList)

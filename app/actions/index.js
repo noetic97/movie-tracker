@@ -6,7 +6,6 @@ export const getMovieData = (url) => {
 }
 
 export const logBang = (text) => {
-  console.log('action fired!');
   return {
     type: 'LOG_BANG',
     text

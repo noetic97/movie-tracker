@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 
 class MovieList extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
   }
 
-  fetchMovies() {
-    this.props.getMovieData('fetchURL');
+  handleBang() {
+    this.props.logBang('BANG!')
   }
 
   render() {
     return (
       <section>
-        THIS IS THE MovieList COMPONENT
+        THIS IS THE TEST COMPONENT
         <button
           className="sampleBtn"
-          onClick={this.fetchMovies.bind(this)}
+          onClick={this.handleBang.bind(this)}
         >CLICK ME!</button>
       </section>
     )

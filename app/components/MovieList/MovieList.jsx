@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import MovieCard from '../MovieCard/MovieCard'
 import apiKey from '../../APIkey'
 
-
-
 class MovieList extends Component {
   constructor() {
     super()

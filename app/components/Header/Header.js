@@ -7,8 +7,12 @@ const Header = () => {
       <div className="header-top">
         <h1 className="logo">MOVIE TRACKER</h1>
         <div className="login-signup-btns">
-          <button>Login</button>
-          <button>Signup</button>
+          <NavLink to="/login">
+            <button>Login</button>
+          </NavLink>
+          <NavLink to='/create-user'>
+            <button>Signup</button>
+          </NavLink>
         </div>
       </div>
       <nav>

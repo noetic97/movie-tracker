@@ -16,8 +16,9 @@ class MovieList extends Component {
     const movieCardArray = this.props.movieData.map((movie) => {
       return <MovieCard movieData={ movie } key={movie.id}/>
     })
+
     return (
-      <section className="movie-list container">
+      <section className="movie-list">
         {movieCardArray}
       </section>
     )

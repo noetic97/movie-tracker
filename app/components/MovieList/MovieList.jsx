@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import MovieCard from './MovieCard'
-import apiKey from '../APIkey'
+import MovieCard from '../MovieCard/MovieCard'
+import apiKey from '../../APIkey'
+
 
 class MovieList extends Component {
   constructor() {
@@ -15,8 +16,9 @@ class MovieList extends Component {
     const movieCardArray = this.props.movieData.map((movie) => {
       return <MovieCard movieData={ movie } key={movie.id}/>
     })
+
     return (
-      <section>
+      <section className="movie-list">
         {movieCardArray}
       </section>
     )

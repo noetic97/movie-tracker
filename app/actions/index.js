@@ -9,7 +9,7 @@ export const logBang = (text) => {
 export const fetchMovieData = (url) => {
     return (dispatch) => {
         dispatch(fetchIsLoading(true));
-        fetch(url)
+          fetch(url)
             .then((response) => {
                 if (!response.ok) {
                     throw Error(response.statusText);
@@ -21,6 +21,7 @@ export const fetchMovieData = (url) => {
             .then((items) => dispatch(moviesFetchDataSuccess(items)))
             .catch(() => dispatch(fetchHasErrored(true)));
     };
+
 }
 
 export const fetchHasErrored = (bool) => {

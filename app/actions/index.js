@@ -45,9 +45,18 @@ export const moviesFetchDataSuccess = (movies) => {
   };
 }
 
-export const loginUser = (userInfo) => {
+export const loginUser = (userCreds) => {
+  console.log(userCreds);
   return {
     type: 'LOGIN_USER',
-    userInfo
+    userCreds
+  }
+}
+
+export const createUser = (userCreds) => {
+  console.log(userCreds);
+  return {
+    type: 'CREATE_USER',
+    userCreds
   }
 }

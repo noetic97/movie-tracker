@@ -4,24 +4,31 @@ class Login extends Component {
   constructor() {
     super()
     this.state = {
-      username: '',
+      email: '',
       password: ''
     }
   }
 
-  // handleInput() {
-  //
-  // }
+  handleChange(e) {
+    const key = e.target.name
+    this.setState({[key]: e.target.value})
+  }
 
   render() {
     return (
-      <form>
-        <input type='text'
-               placeholder='name'
-               value={this.state.username}/>
-        <input type='text'
+      <form onSubmit={(e) => {
+        e.preventDefault()
+        this.props.submitCreds(this.state)}}>
+        <input type='email'
+               placeholder='email'
+               value={this.state.email}
+               name='email'
+               onChange={(e) => this.handleChange(e)}/>
+        <input type='password'
                placeholder='password'
-               value={this.state.password}/>
+               value={this.state.password}
+               name='password'
+               onChange={(e) => this.handleChange(e)}/>
         <input type='submit'/>
       </form>
     )

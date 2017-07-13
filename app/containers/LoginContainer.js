@@ -12,8 +12,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    submitCreds: () => {
-      dispatch(loginUser())
+    submitCreds: (userCreds) => {
+      dispatch(loginUser(userCreds))
     }
   }
 }

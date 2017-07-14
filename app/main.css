@@ -142,6 +142,48 @@ body {
   background-color: #5281a4;
 }
 
+.login-component {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-component .login-form h1 {
+  color: #25323C;
+  margin: 0;
+}
+
+.login-component .login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  background: #fff;
+  border-radius: 10px;
+}
+
+.login-component .input-email,
+.login-component .input-password {
+  margin-bottom: 20px;
+  width: 300px;
+  height: 30px;
+  padding: 4px;
+  font-size: 14px;
+}
+
+.login-component .input-submit {
+  width: 300px;
+  height: 30px;
+  font-size: 14px;
+  border: 2px solid transparent;
+  transition: 200ms;
+}
+.login-component .input-submit:hover {
+  cursor: pointer;
+  border: 2px solid #25323C;
+}
+
 
 
 @media (min-width: 750px) {

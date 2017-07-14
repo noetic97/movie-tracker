@@ -4,7 +4,8 @@ import Login from '../components/Login/Login';
 
 const mapStateToProps = (state) => {
   return {
-    successMsg: state.userCreds.status
+    successMsg: state.userCreds.status,
+    fetchErr: state.fetchHasErrored
   }
 }
 

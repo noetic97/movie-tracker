@@ -37,14 +37,6 @@ export const moviesFetchDataSuccess = (movies) => {
   };
 }
 
-export const loginUser = (userCreds) => {
-  console.log(userCreds);
-  return {
-    type: 'LOGIN_USER',
-    userCreds
-  }
-}
-
 export const createUser = (userCreds) => {
   console.log(userCreds);
   return {
@@ -69,7 +61,6 @@ export const fetchLoginUser = (data) => {
     })
     .then((response) => {
       if(!response.ok) {
-        console.log("ERRRRRRRRRRROR");
         console.log(response.statusText);
         throw Error(response.statusText);
       }
@@ -82,5 +73,13 @@ export const fetchLoginUser = (data) => {
       dispatch(loginUser(formData))
     })
     .catch(() => dispatch(fetchHasErrored(true)))
+    }
+  }
+
+  export const loginUser = (userCreds) => {
+    console.log(userCreds);
+    return {
+      type: 'LOGIN_USER',
+      userCreds
     }
   }

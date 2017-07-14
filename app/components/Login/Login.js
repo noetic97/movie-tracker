@@ -16,21 +16,26 @@ class Login extends Component {
 
   render() {
     return (
-      <form onSubmit={(e) => {
-        e.preventDefault()
-        this.props.submitCreds(this.state)}}>
-        <input type='email'
-               placeholder='email'
-               value={this.state.email}
-               name='email'
-               onChange={(e) => this.handleChange(e)}/>
-        <input type='password'
-               placeholder='password'
-               value={this.state.password}
-               name='password'
-               onChange={(e) => this.handleChange(e)}/>
-        <input type='submit'/>
-      </form>
+      <div className="login-component">
+        <form className="login-form" onSubmit={(e) => {
+          e.preventDefault()
+          this.props.submitCreds(this.state)}}>
+          <h1>Login</h1>
+          <input type='email'
+            className="input-email"
+            placeholder='email'
+            value={this.state.email}
+            name='email'
+            onChange={(e) => this.handleChange(e)}/>
+          <input type='password'
+            className="input-password"
+            placeholder='password'
+            value={this.state.password}
+            name='password'
+            onChange={(e) => this.handleChange(e)}/>
+          <button className="input-submit">Submit</button>
+        </form>
+      </div>
     )
   }
 }

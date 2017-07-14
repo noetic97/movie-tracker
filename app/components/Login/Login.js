@@ -15,9 +15,13 @@ class Login extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <form onSubmit={(e) => {
         e.preventDefault()
+        if(!this.props.fetchError) {
+          console.log('you are not logged in');
+        }
         this.props.submitCreds(this.state)}}>
         <input type='email'
                placeholder='email'

@@ -8,8 +8,8 @@ const MovieCard = ({ movieData }) => {
   return(
     <div className='movie-card'>
       <img className='movie-poster'
-           src={movieData.poster_path}
-           alt='Movie poster'/>
+        src={movieData.poster_path}
+      alt='Movie poster'/>
       <div className="sub-header">
         <h2 className='title'>{movieData.title}</h2>
         <span className="rating">{movieData.vote_average}</span>
@@ -18,7 +18,7 @@ const MovieCard = ({ movieData }) => {
       <ul className="genre-list">
         {movieGenres}
       </ul>
-      {/* <button classname='favorite'>Favorite</button> */}
+      <button className='favorite-btn'>Favorite</button>
     </div>
   )
 }

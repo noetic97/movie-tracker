@@ -109,3 +109,9 @@ export const fetchLoginUser = (data) => {
       userCreds
     }
   }
+
+  export const logOutUser = () => {
+    return {
+      type: 'LOGGED_OUT_USER',
+    }
+  }

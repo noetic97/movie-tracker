@@ -14,22 +14,21 @@ class Login extends Component {
     this.setState({[key]: e.target.value})
   }
 
+  handleSubmit(e) {
+    e.preventDefault()
+    this.props.submitCreds(this.state)
+    setTimeout(
+      ()=>{if (this.props.successMsg) {
+        this.props.history.push('/')
+      }else{}}
+    , 1000);
+  }
+
   render() {
+    const errorClass = this.props.fetchErr ? "invalid-true" : "invalid-false"
     return (
       <div className="login-component">
-        <form className="login-form"
-          onSubmit={(e) => {
-            e.preventDefault()
-            this.props.submitCreds(this.state)
-            setTimeout(
-              ()=>{if (this.props.successMsg) {
-                this.props.history.push('/')
-              }}
-            , 1000);
-
-            
-          }}
-        >
+        <form className="login-form" onSubmit={(e) => this.handleSubmit(e)}>
           <h1>Login</h1>
           <input type='email'
             className="input-email"
@@ -43,6 +42,7 @@ class Login extends Component {
             value={this.state.password}
             name='password'
             onChange={(e) => this.handleChange(e)}/>
+          <p style={{color: 'red'}} className={errorClass}>Invalid Email or Password</p>
           <button className="input-submit">Submit</button>
         </form>
       </div>

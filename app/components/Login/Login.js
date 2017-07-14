@@ -26,6 +26,7 @@ class Login extends Component {
                 this.props.history.push('/')
               }}
             , 1000);
+
             
           }}
         >

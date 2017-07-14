@@ -37,8 +37,37 @@ export const moviesFetchDataSuccess = (movies) => {
   };
 }
 
+export const fetchCreateUser = (data) => {
+  return (dispatch) => {
+    fetch('api/users/new',
+  {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      name: data.name,
+      email: data.email,
+      password: data.password,
+    })
+  })
+  .then((response) => {
+    if(!response.ok) {
+      throw Error(response.statusText);
+    }
+    dispatch(fetchIsLoading(false))
+    return response;
+  })
+  .then((response) => response.json())
+  .then((formData) => {
+    dispatch(fetchHasErrored(false))
+    dispatch(createUser(formData))
+  })
+  .catch(() => dispatch(fetchHasErrored(true)))
+  }
+}
+
 export const createUser = (userCreds) => {
-  console.log(userCreds);
   return {
     type: 'CREATE_USER',
     userCreds
@@ -57,11 +86,9 @@ export const fetchLoginUser = (data) => {
         email: data.email,
         password: data.password
       })
-
     })
     .then((response) => {
       if(!response.ok) {
-        console.log(response.statusText);
         throw Error(response.statusText);
       }
       dispatch(fetchIsLoading(false))
@@ -77,7 +104,6 @@ export const fetchLoginUser = (data) => {
   }
 
   export const loginUser = (userCreds) => {
-    console.log(userCreds);
     return {
       type: 'LOGIN_USER',
       userCreds

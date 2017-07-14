@@ -1,0 +1,62 @@
+.movie-card {
+  text-align: center;
+}
+
+.movie-card .sub-header {
+  padding: 0 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.movie-card .rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #CD791F;
+  border-radius: 100px;
+  width: 45px;
+  height: 25px;
+  font-size: 14px;
+  box-shadow: 2px 2px 4px rgba(0,0,0,.25);
+  padding-top: 3px;
+}
+
+.movie-card .movie-poster {
+  width: 80%;
+  box-shadow: 0px 20px 100px rgba(0,0,0,.4);
+  transition: 200ms;
+}
+.movie-card .movie-poster:hover {
+  cursor: pointer;
+  box-shadow: 0px 20px 100px rgba(0,0,0,.8);
+  transform: scale(1.02);
+}
+
+.movie-card .title {
+  letter-spacing: 1px;
+  font-weight: 300;
+  font-size: 17px;
+  text-align: left;
+  text-shadow: 2px 2px 4px rgba(0,0,0,.7);
+}
+
+.movie-card .genre-list {
+  color: #9DA7AE;
+  padding: 0 15%;
+  margin: 0;
+}
+
+.movie-card .genre {
+  text-align: left;
+  font-size: 12px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,.6);
+}
+
+.movie-card .genre-heading {
+  text-shadow: 1px 1px 2px rgba(0,0,0,.6);
+  text-align: left;
+  margin: 0 10%;
+  font-size: 15px;
+  font-weight: 400;
+}

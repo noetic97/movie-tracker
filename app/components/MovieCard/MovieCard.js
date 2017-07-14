@@ -1,4 +1,5 @@
 import React from 'react';
+// import './MovieCard.css';
 
 const MovieCard = ({ movieData }) => {
 
@@ -6,7 +7,9 @@ const MovieCard = ({ movieData }) => {
 
   return(
     <div className='movie-card'>
-      <img className='movie-poster' src={movieData.poster_path} alt='Movie poster'/>
+      <img className='movie-poster'
+           src={movieData.poster_path}
+           alt='Movie poster'/>
       <div className="sub-header">
         <h2 className='title'>{movieData.title}</h2>
         <span className="rating">{movieData.vote_average}</span>

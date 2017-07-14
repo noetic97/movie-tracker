@@ -38,7 +38,6 @@ export const moviesFetchDataSuccess = (movies) => {
 }
 
 export const fetchCreateUser = (data) => {
-  console.log(data, 'data');
   return (dispatch) => {
     fetch('api/users/new',
   {
@@ -54,7 +53,6 @@ export const fetchCreateUser = (data) => {
   })
   .then((response) => {
     if(!response.ok) {
-      console.log(response.statusText);
       throw Error(response.statusText);
     }
     dispatch(fetchIsLoading(false))
@@ -70,7 +68,6 @@ export const fetchCreateUser = (data) => {
 }
 
 export const createUser = (userCreds) => {
-  console.log(userCreds, 'userCreds');
   return {
     type: 'CREATE_USER',
     userCreds
@@ -107,7 +104,6 @@ export const fetchLoginUser = (data) => {
   }
 
   export const loginUser = (userCreds) => {
-    console.log(userCreds);
     return {
       type: 'LOGIN_USER',
       userCreds

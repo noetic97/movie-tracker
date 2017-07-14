@@ -13,7 +13,8 @@ class MovieList extends Component {
 
   render() {
     const movieCardArray = this.props.movieData.map((movie) => {
-      return <MovieCard movieData={ movie } key={movie.id}/>
+      return <MovieCard movieData={ movie }
+                        key={movie.id} />
     })
 
     return (

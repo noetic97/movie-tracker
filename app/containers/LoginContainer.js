@@ -3,7 +3,6 @@ import { loginUser, fetchLoginUser } from '../actions';
 import Login from '../components/Login/Login';
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     successMsg: state.userCreds.status,
     fetchErr: state.fetchHasErrored

@@ -18,9 +18,10 @@ class Login extends Component {
     e.preventDefault()
     this.props.submitCreds(this.state)
     setTimeout(
-      ()=>{if (this.props.successMsg) {
-        this.props.history.push('/')
-      }else{}}
+      () => {
+        if (this.props.successMsg) {
+          this.props.history.push('/')
+        }}
     , 1000);
   }
 
@@ -28,7 +29,8 @@ class Login extends Component {
     const errorClass = this.props.fetchErr ? "invalid-true" : "invalid-false"
     return (
       <div className="login-component">
-        <form className="login-form" onSubmit={(e) => this.handleSubmit(e)}>
+        <form className="login-form"
+              onSubmit={(e) => this.handleSubmit(e)}>
           <h1>Login</h1>
           <input type='email'
             className="input-email"

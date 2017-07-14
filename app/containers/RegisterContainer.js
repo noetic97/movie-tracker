@@ -1,13 +1,20 @@
 import { connect } from 'react-redux';
-import { createUser } from '../actions';
+import { createUser, fetchCreateUser } from '../actions';
 import Register from '../components/Register/Register';
+
+const mapStateToProps = (state) => {
+  return {
+    successMsg: state.userReg.status,
+    fetchErr: state.fetchHasErrored
+  }
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
     regCreds: (userCreds) => {
-      dispatch(createUser(userCreds))
+      dispatch(fetchCreateUser(userCreds))
     }
   }
 }
 
-export default connect(null, mapDispatchToProps)(Register)
+export default connect(mapStateToProps, mapDispatchToProps)(Register)

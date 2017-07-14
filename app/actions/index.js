@@ -1,11 +1,3 @@
-export const logBang = (text) => {
-  console.log('action fired!');
-  return {
-    type: 'LOG_BANG',
-    text
-  }
-}
-
 export const fetchMovieData = (url) => {
   return (dispatch) => {
     dispatch(fetchIsLoading(true));
@@ -60,3 +52,35 @@ export const createUser = (userCreds) => {
     userCreds
   }
 }
+
+export const fetchLoginUser = (data) => {
+  return (dispatch) => {
+    fetch('api/users/',
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: data.email,
+        password: data.password
+      })
+
+    })
+    .then((response) => {
+      if(!response.ok) {
+        console.log("ERRRRRRRRRRROR");
+        console.log(response.statusText);
+        throw Error(response.statusText);
+      }
+      dispatch(fetchIsLoading(false))
+      return response;
+    })
+    .then((response) => response.json())
+    .then((formData) => {
+      dispatch(fetchHasErrored(false))
+      dispatch(loginUser(formData))
+    })
+    .catch(() => dispatch(fetchHasErrored(true)))
+    }
+  }

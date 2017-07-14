@@ -9,7 +9,13 @@
   /*text-align: center;*/
 }
 
+html {
+  background-color: #2D3C46;
+}
+
 body {
+  padding: 10px;
+  margin: 0;
   background:
     linear-gradient(
       to right,
@@ -143,12 +149,27 @@ body {
   background-color: #5281a4;
 }
 
+.header .logout-container button {
+  color: #fff;
+  font-size: 14px;
+  width: 80px;
+  height: 40px;
+  border: none;
+  background-color: #3d6481;
+  margin-left: 10px;
+  border-radius: 8px;
+}
+.header .logout-container button:hover {
+  cursor: pointer;
+  background-color: #5281a4;
+}
+
 .login-component {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 25px;
-  animation: growBox 1s;
+  animation: growBox .5s;
 }
 
 .login-component .login-form h1 {
@@ -216,10 +237,12 @@ body {
 
 @keyframes growBox {
   from {
+    height: 0px;
     transform: scaley(0);
     opacity: 0;
   }
   to {
+    height: 305px;
     transform: scaley(1);
     opacity: 1;
   }

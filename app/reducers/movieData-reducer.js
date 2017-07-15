@@ -31,3 +31,12 @@ export const movies = (state = [], action) => {
       return state;
   }
 }
+
+export const userFavorites = (state = [], action) => {
+  switch (action.type) {
+    case 'USER_FAVORITES' :
+      return action.userFavorites;
+    default:
+      return state;
+  }
+}

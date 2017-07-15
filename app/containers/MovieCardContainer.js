@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import MovieCard from '../components/MovieCard/MovieCard';
-import { fetchAddFavorites, fetchUserFavorites} from '../actions'
+import { fetchAddFavorites, fetchUserFavorites, fetchDeleteFavorite} from '../actions'
 
 const mapStateToProps = (state) => {
   return {
@@ -16,6 +16,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     retrieveFavorites : (userId) => {
       dispatch(fetchUserFavorites(userId))
+    },
+    removeFromFavorites : (movieObj) => {
+      dispatch(fetchDeleteFavorite(movieObj))
     }
   }
 }

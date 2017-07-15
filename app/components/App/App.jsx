@@ -4,6 +4,7 @@ import { Route } from 'react-router'
 import HeaderContainer from '../../containers/HeaderContainer'
 import LoginContainer from '../../containers/LoginContainer'
 import RegisterContainer from '../../containers/RegisterContainer'
+import FavoriteListContainer from '../../containers/FavoriteListContainer'
 
 export default class App extends Component {
   constructor() {
@@ -18,7 +19,11 @@ export default class App extends Component {
                component={LoginContainer} />
         <Route path='/create-user'
                component={RegisterContainer} />
-        <MovieListContainer />
+        <Route path='/favorites'
+               component={FavoriteListContainer} />
+        <Route path='/'
+               exact
+               component={MovieListContainer} />
         {/* <Route path='/' exact component={MovieListContainer} /> */}
       </div>
     )

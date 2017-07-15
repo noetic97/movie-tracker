@@ -37,7 +37,7 @@ const Header = (props) => {
         <NavLink className="nav-link"
                  to="/">New Releases</NavLink>
         <NavLink className="nav-link"
-                 to="/about">About</NavLink>
+                 to="/favorites">Favorite Movies</NavLink>
       </nav>
     </header>
   )

@@ -23,7 +23,7 @@ describe('movieData reducer', () => {
         genre_ids: '28'
       }]}}}
 
-    const getMovies = movies(undefined, {type: 'MOVIES_FETCH_DATA_SUCCESS'}, movieArray)
+    const getMovies = movies(undefined, {type: 'MOVIES_FETCH_DATA_SUCCESS'})
 
     expect(getMovies).toEqual(movieArray)
   })

@@ -151,12 +151,7 @@ export const fetchLoginUser = (data) => {
     }
 
   export const fetchUserFavorites = (userId) => {
-    return (dispatch, getState) => {
-
-    let state = getState()
-    state.userFavorites
-    console.log(state);
-
+    return (dispatch) =>
       fetch(`api/users/${userId}/favorites`,
       {
         method: 'GET',
@@ -188,10 +183,11 @@ export const fetchLoginUser = (data) => {
   }
 
   export const fetchDeleteFavorite = (faveMovieObj) => {
-    let userId = faveMovieObj.user_id;
-    let movieId = faveMovieObj.movie_id;
-    console.log(userId, movieId, 'hi');
-    return (dispatch) => {
+    return (dispatch, getState) => {
+      let state = getState()
+      let userId = state.userCreds.data.id;
+      let movieId = faveMovieObj.movie_id;
+
       fetch(`api/users/${userId}/favorites/${movieId}`,
         {
           method: 'DELETE',

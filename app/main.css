@@ -223,6 +223,20 @@ body {
   display: none;
 }
 
+.movie-card .favorite-btn {
+  border: none;
+  background-color: gold;
+  width: 200px;
+  transition: 200ms;
+}
+.movie-card .favorite-btn:hover {
+  cursor: pointer;
+  background-color: purple;
+}
+.movie-card .favorite-btn.active {
+  background-color: lime;
+}
+
 @media (min-width: 750px) {
   .movie-list {
     grid-template-columns: repeat(3, 1fr);

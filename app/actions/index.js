@@ -99,6 +99,7 @@ export const fetchLoginUser = (data) => {
     .then((formData) => {
       dispatch(fetchHasErrored(false))
       dispatch(loginUser(formData))
+      dispatch(fetchUserFavorites(formData.data.id))
     })
     .catch(() => dispatch(fetchHasErrored(true)))
     }
@@ -117,3 +118,74 @@ export const fetchLoginUser = (data) => {
       type: 'LOGGED_OUT_USER',
     }
   }
+
+  export const fetchAddFavorites = (movieData, userCreds) => {
+
+    return (dispatch) => {
+      fetch('api/users/favorites/new/',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          movie_id: movieData.id,
+          user_id: userCreds.data.id,
+          title: movieData.title,
+          poster_path: movieData.poster_path,
+          release_date: movieData.release_date,
+          vote_average: movieData.vote_average,
+          overview: movieData.overview
+        })
+      })
+      .then((response) => {
+        if(!response.ok) {
+          throw Error(response.statusText);
+        }
+        dispatch(fetchIsLoading(false))
+        return response;
+      })
+      .then((response) => response.json())
+      .then((formData) => {
+        dispatch(fetchHasErrored(false))
+        dispatch(fetchUserFavorites(userCreds.data.id))
+      })
+      .catch(() => dispatch(fetchHasErrored(true)))
+      }
+    }
+
+    export const fetchUserFavorites = (userId) => {
+
+      return (dispatch, getState) => {
+
+      let state = getState()
+      state.userFavorites
+
+        fetch(`api/users/${userId}/favorites`,
+        {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          }
+        })
+        .then((response) => {
+          if(!response.ok) {
+            throw Error(response.statusText);
+          }
+          dispatch(fetchIsLoading(false))
+          return response;
+        })
+        .then((response) => response.json())
+        .then((formData) => {
+          dispatch(fetchHasErrored(false))
+          dispatch(userFavorites(formData))
+        })
+        .catch(() => dispatch(fetchHasErrored(true)))
+        }
+      }
+      export const userFavorites = (data) => {
+        return {
+          type: 'USER_FAVORITES',
+          userFavorites: data
+        }
+      }

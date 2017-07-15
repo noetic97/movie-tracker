@@ -1,9 +1,12 @@
 import React from 'react';
 // import './MovieCard.css';
 
-const MovieCard = ({ movieData }) => {
-
+const MovieCard = ({ movieData, addToFavorites, userData }) => {
   const movieGenres = movieData.genre_ids.map(genre => <li key={genre} className="genre">{genre}</li>)
+
+  const addFavorite = (movieData, userData) => {
+    addToFavorites(movieData, userData)
+  }
 
   return(
     <div className='movie-card'>
@@ -18,7 +21,7 @@ const MovieCard = ({ movieData }) => {
       <ul className="genre-list">
         {movieGenres}
       </ul>
-      <button className='favorite-btn'>Favorite</button>
+      <button onClick={() => addFavorite(movieData, userData)} className='favorite-btn'>Favorite</button>
     </div>
   )
 }

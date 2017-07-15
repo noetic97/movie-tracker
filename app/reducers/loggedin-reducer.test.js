@@ -1,15 +1,15 @@
-import loggedIn from './loggedin-reducer';
+import { loggedIn } from './loggedin-reducer';
 
 describe('loggedin reducer', () => {
-  it.skip('Should return an initial state', () => {
+  it('Should return an initial state', () => {
     expect(loggedIn(undefined, {})).toBe(false)
   })
 
-  it('Should return an updated state if given stuff', () => {
-    const expectedState = loggedIn(true,
-                         {type: 'LOGIN_USER'})
+  it('Should return an updated state if given an action', () => {
+    const loggedInState = loggedIn(undefined, {type: 'LOGIN_USER'})
+    const loggedOutState = loggedIn(undefined, {type: 'LOGGED_OUT_USER'})
 
-
-    expect(expectedState[1]).toEqual(true)
+    expect(loggedInState).toEqual(true)
+    expect(loggedOutState).toEqual(false)
   })
 })

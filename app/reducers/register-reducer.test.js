@@ -1,4 +1,4 @@
-import userReg from './register-reducer';
+import { userReg } from './register-reducer';
 
 describe('register reducer', () => {
   it.skip('Should return an initial state', () => {

@@ -1,7 +1,19 @@
-import userCreds from './login-reducer';
+import { userCreds } from './login-reducer';
 
-describe('loggedin reducer', () => {
-  it.skip('Should return an initial state', () => {
-    expect(loggedIn(undefined, {})).toEqual(false)
+describe('login reducer', () => {
+  it('Should return an initial state', () => {
+    expect(userCreds(undefined, {})).toEqual({})
+  })
+
+  it.skip('Should return an updated state if given actions', () => {
+    const userCredentials = {
+      email: 'tman2272@aol.com',
+      password: 'password'
+    }
+
+    const expectedState = userCreds(userCredentials, {type: 'LOGIN_USER', userCredentials})
+
+    console.log('fuck', expectedState);
+    expect(expectedState).toEqual(userCredentials)
   })
 })

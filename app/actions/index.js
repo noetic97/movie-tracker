@@ -149,3 +149,35 @@ export const fetchLoginUser = (data) => {
       .catch(() => dispatch(fetchHasErrored(true)))
       }
     }
+
+    export const fetchUserFavorites = (userId) => {
+
+      return (dispatch) => {
+        fetch(`api/users/${userId}/favorites`,
+        {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          }
+        })
+        .then((response) => {
+          if(!response.ok) {
+            throw Error(response.statusText);
+          }
+          dispatch(fetchIsLoading(false))
+          return response;
+        })
+        .then((response) => response.json())
+        .then((formData) => {
+          dispatch(fetchHasErrored(false))
+          dispatch(userFavorites(formData))
+        })
+        .catch(() => dispatch(fetchHasErrored(true)))
+        }
+      }
+      export const userFavorites = (data) => {
+        return {
+          type: 'USER_FAVORITES',
+          userFavorites: data
+        }
+      }

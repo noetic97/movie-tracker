@@ -1,10 +1,12 @@
 import React from 'react';
 // import './MovieCard.css';
 
-const MovieCard = ({ movieData, addToFavorites, userData }) => {
+const MovieCard = ({ movieData, addToFavorites, userData, retrieveFavorites, userFavorites }) => {
   const movieGenres = movieData.genre_ids.map(genre => <li key={genre} className="genre">{genre}</li>)
 
   const addFavorite = (movieData, userData) => {
+    retrieveFavorites(userData.data.id)
+    console.log(userFavorites); //map pver favs here
     addToFavorites(movieData, userData)
   }
 

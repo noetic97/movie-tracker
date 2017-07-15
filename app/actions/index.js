@@ -132,7 +132,8 @@ export const fetchLoginUser = (data) => {
           poster_path: movieData.poster_path,
           release_date: movieData.release_date,
           vote_average: movieData.vote_average,
-          overview: movieData.overview
+          overview: movieData.overview,
+          genre_ids: movieData.genre_ids
         })
       })
       .then((response) => {

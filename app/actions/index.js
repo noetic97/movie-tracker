@@ -13,7 +13,6 @@ export const fetchMovieData = (url) => {
         .then((items) => dispatch(moviesFetchDataSuccess(items)))
         .catch(() => dispatch(fetchHasErrored(true)));
   };
-
 }
 
 export const fetchHasErrored = (bool) => {

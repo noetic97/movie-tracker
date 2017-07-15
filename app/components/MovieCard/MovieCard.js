@@ -6,7 +6,6 @@ const MovieCard = ({ movieData, addToFavorites, userData, retrieveFavorites, use
 
   const addFavorite = (movieData, userData) => {
     const favMovieIds = userFavorites.map((movie) => movie.movie_id)
-    console.log('md', movieData.id);
     const currentFavorite =  favMovieIds.includes(movieData.id)
     if(!currentFavorite) {
       addToFavorites(movieData, userData)

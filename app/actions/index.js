@@ -117,7 +117,6 @@ export const fetchLoginUser = (data) => {
   }
 
   export const fetchAddFavorites = (movieData, userCreds) => {
-
     return (dispatch) => {
       fetch('api/users/favorites/new/',
       {
@@ -126,14 +125,13 @@ export const fetchLoginUser = (data) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          movie_id: movieData.id,
+          movie_id: movieData.movie_id,
           user_id: userCreds.data.id,
           title: movieData.title,
           poster_path: movieData.poster_path,
           release_date: movieData.release_date,
           vote_average: movieData.vote_average,
           overview: movieData.overview,
-          genre_ids: movieData.genre_ids
         })
       })
       .then((response) => {

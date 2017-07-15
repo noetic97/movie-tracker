@@ -26,6 +26,7 @@ export const movies = (state = [], action) => {
       return action.movies.results
         .map(movie => Object.assign(movie, {poster_path: `https://image.tmdb.org/t/p/w500${movie.poster_path}`}) )
         .map(movie => Object.assign(movie, {genre_ids: movie.genre_ids.map(id => movieGenres[id])}) )
+        .map(movie => Object.assign(movie, {movie_id: movie.id}))
 
     default:
       return state;

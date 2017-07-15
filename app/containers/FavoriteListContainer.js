@@ -3,7 +3,6 @@ import { fetchUserFavorites } from '../actions';
 import FavoriteList from '../components/FavoriteList/FavoriteList';
 
 const mapStateToProps = (state) => {
-  console.log(state);
   const favMovies = state.loggedIn ? state.userFavorites.data : []
 
   return {

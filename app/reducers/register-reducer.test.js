@@ -11,8 +11,6 @@ describe('register reducer', () => {
     const userLoggedIn = userReg(undefined, {type: 'LOGGED_OUT_USER'})
     const userLoggedout = userReg(undefined, {type: 'LOGIN_USER'})
 
-    // console.log(userCreated);
-
     expect(userLoggedIn).toEqual({})
     expect(userLoggedout).toEqual({})
   })

@@ -2,11 +2,13 @@ import React from 'react';
 // import './MovieCard.css';
 
 const MovieCard = ({ movieData, addToFavorites, userData, retrieveFavorites, userFavorites }) => {
-  const movieGenres = movieData.genre_ids.map(genre => <li key={genre} className="genre">{genre}</li>)
+  const movieGenres = movieData.genre_ids ? movieData.genre_ids.map(genre => <li key={genre} className="genre">{genre}</li>) : null
 
   const addFavorite = (movieData, userData) => {
-    const favMovieIds = userFavorites.map((movie) => movie.movie_id)
-    const currentFavorite =  favMovieIds.includes(movieData.id)
+    const favMovieIds = userFavorites.map((movie) => {
+      return movie.movie_id
+    })
+    const currentFavorite =  favMovieIds.includes(movieData.movie_id)
     if(!currentFavorite) {
       addToFavorites(movieData, userData)
     }
@@ -21,7 +23,7 @@ const MovieCard = ({ movieData, addToFavorites, userData, retrieveFavorites, use
         <h2 className='title'>{movieData.title}</h2>
         <span className="rating">{movieData.vote_average}</span>
       </div>
-      <h3 className="genre-heading">Genres:</h3>
+      {movieData.genre_ids ? <h3 className="genre-heading">Genres:</h3> : <div></div>}
       <ul className="genre-list">
         {movieGenres}
       </ul>

@@ -1,10 +1,16 @@
 import React from 'react';
 // import './MovieCard.css';
 
-const MovieCard = ({ movieData, addToFavorites, userData, retrieveFavorites, userFavorites }) => {
+const MovieCard = ({ movieData, addToFavorites, userData, retrieveFavorites, userFavorites, loggedIn }) => {
+
   const movieGenres = movieData.genre_ids ? movieData.genre_ids.map(genre => <li key={genre} className="genre">{genre}</li>) : null
 
   const addFavorite = (movieData, userData) => {
+    if (!loggedIn) {
+      // history.push('/login')
+      return
+    }
+
     const favMovieIds = userFavorites.map((movie) => {
       return movie.movie_id
     })
@@ -13,6 +19,38 @@ const MovieCard = ({ movieData, addToFavorites, userData, retrieveFavorites, use
       addToFavorites(movieData, userData)
     }
   }
+
+  if (userFavorites) {
+    var favMovieIds = userFavorites.map((movie) => {
+      return movie.movie_id
+    })
+  }
+
+  const favBtnClass = () => {
+    if (userFavorites) {
+      if (favMovieIds.includes(movieData.movie_id)) {
+        return 'favorite-btn active'
+      } else {
+        return 'favorite-btn'
+      }
+    } else {
+      return 'favorite-btn'
+    }
+  }
+
+  const favBtnIcon = () => {
+    if (userFavorites) {
+      if (favMovieIds.includes(movieData.movie_id)) {
+        return '❌'
+      } else {
+        return '❤️'
+      }
+    } else {
+      return '❤️'
+    }
+  }
+
+
 
   return(
     <div className='movie-card'>
@@ -27,7 +65,7 @@ const MovieCard = ({ movieData, addToFavorites, userData, retrieveFavorites, use
       <ul className="genre-list">
         {movieGenres}
       </ul>
-      <button onClick={() => addFavorite(movieData, userData)} className='favorite-btn'>Favorite</button>
+      <button onClick={() => addFavorite(movieData, userData)} className={favBtnClass()}>{favBtnIcon()}</button>
     </div>
   )
 }

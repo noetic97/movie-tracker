@@ -5,7 +5,8 @@ import { fetchAddFavorites, fetchUserFavorites} from '../actions'
 const mapStateToProps = (state) => {
   return {
     userData: state.userCreds,
-    userFavorites: state.userFavorites.data
+    userFavorites: state.userFavorites.data,
+    loggedIn: state.loggedIn
   }
 }
 

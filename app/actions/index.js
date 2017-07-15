@@ -173,7 +173,6 @@ export const fetchLoginUser = (data) => {
       })
       .catch(() => dispatch(fetchHasErrored(true)))
       }
-    }
 
   export const userFavorites = (data) => {
     return {

@@ -13,7 +13,6 @@ describe('login reducer', () => {
 
     const expectedState = userCreds(userCredentials, {type: 'LOGIN_USER', userCredentials})
 
-    console.log('fuck', expectedState);
     expect(expectedState).toEqual(userCredentials)
   })
 })

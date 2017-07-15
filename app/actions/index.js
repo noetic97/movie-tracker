@@ -30,7 +30,6 @@ export const fetchIsLoading = (bool) => {
 }
 
 export const moviesFetchDataSuccess = (movies) => {
-  console.log(movies);
   return {
     type: 'MOVIES_FETCH_DATA_SUCCESS',
     movies
@@ -75,7 +74,6 @@ export const createUser = (userCreds) => {
 }
 
 export const fetchLoginUser = (data) => {
-  console.log(data);
   return (dispatch) => {
     fetch('api/users/',
     {
@@ -106,7 +104,6 @@ export const fetchLoginUser = (data) => {
   }
 
   export const loginUser = (userCreds) => {
-    console.log(userCreds, 'user');
     return {
       type: 'LOGIN_USER',
       userCreds

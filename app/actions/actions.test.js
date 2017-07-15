@@ -1,7 +1,7 @@
 import * as actions from '../actions';
 
 describe('actions', () => {
-  it.skip('fetchHasErrored should return a boolean', () => {
+  it('fetchHasErrored should return a boolean', () => {
     const fetchError = true;
     const expectedState =  {
       type: 'FETCH_HAS_ERRORED',
@@ -11,7 +11,7 @@ describe('actions', () => {
     expect(actions.fetchHasErrored(fetchError)).toEqual(expectedState)
   })
 
-  it.skip('fetchIsLoading should return a boolean', () => {
+  it('fetchIsLoading should return a boolean', () => {
     const fetchLoading = true;
     const expectedState =  {
       type: 'FETCH_IS_LOADING',
@@ -21,7 +21,7 @@ describe('actions', () => {
     expect(actions.fetchIsLoading(fetchLoading)).toEqual(expectedState)
   })
 
-  it.skip('moviesFetchDataSuccess should return an object', () => {
+  it('moviesFetchDataSuccess should return an object', () => {
     const movieObject = {};
     const expectedState =  {
       type: 'MOVIES_FETCH_DATA_SUCCESS',
@@ -31,7 +31,7 @@ describe('actions', () => {
     expect(actions.moviesFetchDataSuccess(movieObject)).toEqual(expectedState)
   })
 
-  it.skip('createUser should return an object', () => {
+  it('createUser should return an object', () => {
     const createUserCreds = {
       name: 'joe',
       email: 'joe@joe.joe',
@@ -46,7 +46,7 @@ describe('actions', () => {
     expect(actions.createUser(createUserCreds)).toEqual(expectedState)
   })
 
-  it.skip('loginUser should return an object', () => {
+  it('loginUser should return an object', () => {
     const logInCreds = {
       email: 'suhdude@itslit.com',
       password: 'whytho'
@@ -59,7 +59,7 @@ describe('actions', () => {
     expect(actions.loginUser(logInCreds)).toEqual(expectedState)
   })
 
-  it.skip('logOutUser should dispatch an action', () => {
+  it('logOutUser should dispatch an action', () => {
     const expectedState =  {
       type: 'LOGGED_OUT_USER',
     };

@@ -15,6 +15,38 @@ const MovieCard = ({ movieData, addToFavorites, userData, retrieveFavorites, use
     }
   }
 
+  if (userFavorites) {
+    var favMovieIds = userFavorites.map((movie) => {
+      return movie.movie_id
+    })
+  }
+
+  const favBtnClass = () => {
+    if (userFavorites) {
+      if (favMovieIds.includes(movieData.movie_id)) {
+        return 'favorite-btn active'
+      } else {
+        return 'favorite-btn'
+      }
+    } else {
+      return 'favorite-btn'
+    }
+  }
+
+  const favBtnIcon = () => {
+    if (userFavorites) {
+      if (favMovieIds.includes(movieData.movie_id)) {
+        return '❌'
+      } else {
+        return '❤️'
+      }
+    } else {
+      return '❤️'
+    }
+  }
+
+
+
   return(
     <div className='movie-card'>
       <img className='movie-poster'
@@ -28,7 +60,7 @@ const MovieCard = ({ movieData, addToFavorites, userData, retrieveFavorites, use
       <ul className="genre-list">
         {movieGenres}
       </ul>
-      <button onClick={() => addFavorite(movieData, userData)} className='favorite-btn'>Favorite</button>
+      <button onClick={() => addFavorite(movieData, userData)} className={favBtnClass()}>{favBtnIcon()}</button>
     </div>
   )
 }

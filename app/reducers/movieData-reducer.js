@@ -37,6 +37,8 @@ export const userFavorites = (state = [], action) => {
   switch (action.type) {
     case 'USER_FAVORITES' :
       return action.userFavorites;
+    case 'LOGGED_OUT_USER' :
+      return [];
     default:
       return state;
   }

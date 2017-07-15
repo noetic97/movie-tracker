@@ -11,6 +11,8 @@ class MovieList extends Component {
     this.props.getMovieData(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`);
   }
 
+
+
   render() {
     const movieCardArray = this.props.movieData.map((movie) => {
       return <MovieCardContainer movieData={ movie }

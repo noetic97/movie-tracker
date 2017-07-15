@@ -5,9 +5,12 @@ const MovieCard = ({ movieData, addToFavorites, userData, retrieveFavorites, use
   const movieGenres = movieData.genre_ids.map(genre => <li key={genre} className="genre">{genre}</li>)
 
   const addFavorite = (movieData, userData) => {
-    retrieveFavorites(userData.data.id)
-    console.log(userFavorites); //map pver favs here
-    addToFavorites(movieData, userData)
+    const favMovieIds = userFavorites.map((movie) => movie.movie_id)
+    console.log('md', movieData.id);
+    const currentFavorite =  favMovieIds.includes(movieData.id)
+    if(!currentFavorite) {
+      addToFavorites(movieData, userData)
+    }
   }
 
   return(

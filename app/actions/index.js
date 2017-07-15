@@ -98,6 +98,7 @@ export const fetchLoginUser = (data) => {
     .then((formData) => {
       dispatch(fetchHasErrored(false))
       dispatch(loginUser(formData))
+      dispatch(fetchUserFavorites(formData.data.id))
     })
     .catch(() => dispatch(fetchHasErrored(true)))
     }
@@ -145,6 +146,7 @@ export const fetchLoginUser = (data) => {
       .then((response) => response.json())
       .then((formData) => {
         dispatch(fetchHasErrored(false))
+        dispatch(fetchUserFavorites(userCreds.data.id))
       })
       .catch(() => dispatch(fetchHasErrored(true)))
       }
@@ -152,7 +154,11 @@ export const fetchLoginUser = (data) => {
 
     export const fetchUserFavorites = (userId) => {
 
-      return (dispatch) => {
+      return (dispatch, getState) => {
+
+      let state = getState()
+      state.userFavorites
+
         fetch(`api/users/${userId}/favorites`,
         {
           method: 'GET',

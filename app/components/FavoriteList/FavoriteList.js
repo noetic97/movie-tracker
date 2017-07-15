@@ -7,7 +7,6 @@ class FavoriteList extends Component {
   }
 
   render() {
-    console.log(this.props.favMovies);
     const favMovieCardArray = this.props.favMovies.map((movie) => {
       return <MovieCardContainer movieData={ movie }
                         key={movie.id} />

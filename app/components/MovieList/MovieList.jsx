@@ -9,7 +9,7 @@ class MovieList extends Component {
 
   componentDidMount() {
     this.props.getMovieData(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`);
-    // this.props.getLocalUser()
+    this.props.getLocalUser()
     // console.log(this.props);
     // this.props.submitCreds(this.props.userCreds.data)
   }

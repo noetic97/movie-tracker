@@ -6,7 +6,8 @@ const mapStateToProps = (state) => {
   const favMovies = state.loggedIn ? state.userFavorites.data : []
 
   return {
-    favMovies
+    favMovies,
+    loggedIn: state.loggedIn
   }
 }
 

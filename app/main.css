@@ -33,6 +33,7 @@ body {
   text-align: center;
 }
 .favorite-list-component {
+  width: 100%;
   text-align: center;
 }
 
@@ -43,14 +44,20 @@ body {
   animation: fadein linear 350ms;
 }
 .favorite-list {
+  text-align: center;
   display: grid;
   grid-row-gap: 40px;
   grid-template-columns: repeat(2, 1fr);
   animation: fadein linear 350ms;
 }
 
+.favorite-list .must-login-msg {
+  text-align: center;
+}
+
 .movie-card {
   text-align: center;
+  position: relative;
 }
 
 .movie-card .sub-header {
@@ -115,8 +122,10 @@ body {
 .movie-card .favorite-btn {
   border: none;
   background-color: gold;
-  width: 200px;
   transition: 200ms;
+  position: absolute;
+  right: 20px;
+  top: -10px;
 }
 .movie-card .favorite-btn:hover {
   cursor: pointer;
@@ -164,13 +173,10 @@ body {
   align-items: center;
   justify-content: center;
   text-decoration: none;
+  transition: 150ms;
 }
 .header .nav-link:hover {
   background-color: #5281a4;
-}
-
-.header .login-signup-btns .active button {
-  color: lime;
 }
 
 .header .login-signup-btns button {
@@ -183,6 +189,7 @@ body {
   margin-left: 10px;
   border-radius: 8px;
   outline: none;
+  transition: 150ms;
 }
 .header .login-signup-btns button:hover {
   cursor: pointer;
@@ -198,10 +205,15 @@ body {
   background-color: #3d6481;
   margin-left: 10px;
   border-radius: 8px;
+  transition: 150ms;
 }
 .header .logout-container button:hover {
   cursor: pointer;
   background-color: #5281a4;
+}
+
+.header .logout-container button.logout-btn:hover {
+  background-color: #fa7f64;
 }
 
 .login-component {

@@ -15,8 +15,12 @@ class FavoriteList extends Component {
     return (
       <section className="favorite-list-component">
         <h2>Favorites</h2>
+        {!this.props.loggedIn ?
+          <p className="must-login-msg">Must Login to view favorites</p> :
+        null}
         <div className="favorite-list">
-          {favMovieCardArray}
+          {this.props.loggedIn ?
+          favMovieCardArray : null}
         </div>
       </section>
     )

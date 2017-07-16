@@ -66,4 +66,27 @@ describe('actions', () => {
 
     expect(actions.logOutUser()).toEqual(expectedState)
   })
+
+  it('userFavorites should return an objject', () => {
+    const data = {
+      status: 'success',
+      data: [
+        {
+        id: 5,
+        movie_id: 324852,
+        overview: "Gru and his wife Lucy .",
+        poster_path: "https://image.tmdb.org/t/p/w500/5qcUGqWoWhEsoQwNUrtf3y3fcWn.jpg",
+        release_date: "2017-06-29",
+        title: "Despicable Me 3",
+        user_id: 1,
+        vote_average: "6.1"}
+      ]
+    };
+    const expectedState =  {
+      type: 'USER_FAVORITES',
+      userFavorites: data
+    };
+    expect(actions.userFavorites(data)).toEqual(expectedState)
+  })
+
 })

@@ -15,7 +15,7 @@ class MovieList extends Component {
 
   render() {
     const movieCardArray = this.props.movieData.map((movie) => {
-      return <MovieCardContainer movieData={ movie }
+      return <MovieCardContainer history={this.props.history} movieData={ movie }
                         key={movie.id} />
     })
 

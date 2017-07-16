@@ -9,17 +9,16 @@ class MovieList extends Component {
 
   componentDidMount() {
     this.props.getMovieData(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`);
-    this.props.getLocalUser()
+    // this.props.getLocalUser()
     // console.log(this.props);
     // this.props.submitCreds(this.props.userCreds.data)
   }
 
-
-
   render() {
     const movieCardArray = this.props.movieData.map((movie) => {
-      return <MovieCardContainer history={this.props.history} movieData={ movie }
-                        key={movie.id} />
+      return <MovieCardContainer history={this.props.history}
+                                 movieData={ movie }
+                                 key={movie.id} />
     })
 
     return (

@@ -10,7 +10,11 @@
 }
 
 html {
-  background-color: #2D3C46;
+  background:
+    linear-gradient(
+      to right,
+      #1E2831, #3B4F5B
+    );
 }
 
 body {
@@ -25,14 +29,35 @@ body {
   color: #fff;
 }
 
+.movie-list-component {
+  text-align: center;
+}
+.favorite-list-component {
+  width: 100%;
+  text-align: center;
+}
+
 .movie-list {
   display: grid;
   grid-row-gap: 40px;
   grid-template-columns: repeat(2, 1fr);
+  animation: fadein linear 350ms;
+}
+.favorite-list {
+  text-align: center;
+  display: grid;
+  grid-row-gap: 40px;
+  grid-template-columns: repeat(2, 1fr);
+  animation: fadein linear 350ms;
+}
+
+.favorite-list .must-login-msg {
+  text-align: center;
 }
 
 .movie-card {
   text-align: center;
+  position: relative;
 }
 
 .movie-card .sub-header {
@@ -97,8 +122,10 @@ body {
 .movie-card .favorite-btn {
   border: none;
   background-color: gold;
-  width: 200px;
   transition: 200ms;
+  position: absolute;
+  right: 20px;
+  top: -10px;
 }
 .movie-card .favorite-btn:hover {
   cursor: pointer;
@@ -132,6 +159,9 @@ body {
 }
 
 .header .nav-link {
+
+}
+.header .nav-link {
   color: #fff;
   font-size: 18px;
   width: 130px;
@@ -143,6 +173,7 @@ body {
   align-items: center;
   justify-content: center;
   text-decoration: none;
+  transition: 150ms;
 }
 .header .nav-link:hover {
   background-color: #5281a4;
@@ -157,6 +188,8 @@ body {
   background-color: #3d6481;
   margin-left: 10px;
   border-radius: 8px;
+  outline: none;
+  transition: 150ms;
 }
 .header .login-signup-btns button:hover {
   cursor: pointer;
@@ -172,10 +205,15 @@ body {
   background-color: #3d6481;
   margin-left: 10px;
   border-radius: 8px;
+  transition: 150ms;
 }
 .header .logout-container button:hover {
   cursor: pointer;
   background-color: #5281a4;
+}
+
+.header .logout-container button.logout-btn:hover {
+  background-color: #fa7f64;
 }
 
 .login-component {
@@ -183,7 +221,7 @@ body {
   justify-content: center;
   align-items: center;
   margin-bottom: 25px;
-  animation: growBox .5s;
+  animation: growBox-login .5s;
 }
 
 .login-component .login-form h1 {
@@ -229,6 +267,58 @@ body {
   display: none;
 }
 
+.register-component {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
+  animation: growBox-register .5s;
+}
+
+.register-component .register-form h1 {
+  color: #25323C;
+  margin: 0;
+}
+
+.register-component .register-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  background: #fff;
+  border-radius: 10px;
+}
+
+.register-component .input-email,
+.register-component .input-name,
+.register-component .input-password {
+  margin-bottom: 20px;
+  width: 300px;
+  height: 30px;
+  padding: 4px;
+  font-size: 14px;
+}
+
+.register-component .input-submit {
+  width: 300px;
+  height: 30px;
+  font-size: 14px;
+  border: 2px solid transparent;
+  transition: 200ms;
+}
+.register-component .input-submit:hover {
+  cursor: pointer;
+  border: 2px solid #25323C;
+}
+
+.register-component .invalid-true {
+  display: block;
+}
+.register-component .invalid-false {
+  display: none;
+}
+
 .register-component .invalid-true {
   display: block;
 }
@@ -242,15 +332,21 @@ body {
   .movie-list {
     grid-template-columns: repeat(3, 1fr);
   }
+  .favorite-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media (min-width: 1100px) {
   .movie-list {
     grid-template-columns: repeat(4, 1fr);
   }
+  .favorite-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
-@keyframes growBox {
+@keyframes growBox-login {
   from {
     height: 0px;
     transform: scaley(0);
@@ -261,4 +357,22 @@ body {
     transform: scaley(1);
     opacity: 1;
   }
+}
+
+@keyframes growBox-register {
+  from {
+    height: 0px;
+    transform: scaley(0);
+    opacity: 0;
+  }
+  to {
+    height: 429px;
+    transform: scaley(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  0% { opacity: 0}
+  100% { opacity: 1}
 }

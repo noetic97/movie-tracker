@@ -22,7 +22,7 @@ const Header = (props) => {
 
     <div className="logout-container">
       <span className="welcomeMsg">Welcome back, {name}</span>
-      <button onClick={() => props.logUserOut()}>Logout</button>
+      <button className="logout-btn" onClick={() => props.logUserOut()}>Logout</button>
     </div>
 
   )
@@ -35,9 +35,9 @@ const Header = (props) => {
       </div>
       <nav>
         <NavLink className="nav-link"
-                 to="/">New Releases</NavLink>
+        to="/">New Releases</NavLink>
         <NavLink className="nav-link"
-                 to="/favorites">Favorite Movies</NavLink>
+        to="/favorites">Favorite Movies</NavLink>
       </nav>
     </header>
   )

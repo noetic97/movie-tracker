@@ -29,30 +29,35 @@ class Register extends Component {
     const errorClass = this.props.fetchErr ? "invalid-true" : "invalid-false"
     return (
       <div className='register-component'>
-        <form onSubmit={(e) => this.handleSubmit(e)}>
+        <form className="register-form" onSubmit={(e) => this.handleSubmit(e)}>
+          <h1>Register</h1>
           <input type='text'
-                 placeholder='Name'
-                 value={this.state.name}
-                 name='name'
-                 onChange={(e) => this.handleChange(e)}/>
+            className='input-name'
+            placeholder='Name'
+            value={this.state.name}
+            name='name'
+            onChange={(e) => this.handleChange(e)}/>
           <input type='email'
-                 placeholder='Email'
-                 value={this.state.email}
-                 name='email'
-                 onChange={(e) => this.handleChange(e)}/>
+            className='input-email'
+            placeholder='Email'
+            value={this.state.email}
+            name='email'
+            onChange={(e) => this.handleChange(e)}/>
           <input type='password'
-                 placeholder='Password'
-                 value={this.state.password}
-                 name='password'
-                 onChange={(e) => this.handleChange(e)}/>
+            className='input-password'
+            placeholder='Password'
+            value={this.state.password}
+            name='password'
+            onChange={(e) => this.handleChange(e)}/>
           <input type='password'
-                 placeholder='Verify Password'
-                 value={this.state.passwordVerify}
-                 name='passwordVerify'
-                 onChange={(e) => this.handleChange(e)}/>
+            className='input-password'
+            placeholder='Verify Password'
+            value={this.state.passwordVerify}
+            name='passwordVerify'
+            onChange={(e) => this.handleChange(e)}/>
           <p style={{color: 'red'}}
-             className={errorClass}>This email has already been used</p>
-          <input type='submit'/>
+            className={errorClass}>This email has already been used</p>
+          <input className='input-submit' type='submit'/>
         </form>
       </div>
     )

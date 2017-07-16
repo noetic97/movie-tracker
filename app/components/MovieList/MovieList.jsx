@@ -9,6 +9,9 @@ class MovieList extends Component {
 
   componentDidMount() {
     this.props.getMovieData(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`);
+    this.props.getLocalUser()
+    // console.log(this.props);
+    // this.props.submitCreds(this.props.userCreds.data)
   }
 
 
@@ -20,8 +23,11 @@ class MovieList extends Component {
     })
 
     return (
-      <section className="movie-list">
-        {movieCardArray}
+      <section className="movie-list-component">
+        <h2>New Releases</h2>
+        <div className="movie-list">
+          {movieCardArray}
+        </div>
       </section>
     )
   }

@@ -192,7 +192,6 @@ export const fetchLoginUser = (data) => {
       }
 
   export const userFavorites = (data) => {
-    console.log('data',data);
     return {
       type: 'USER_FAVORITES',
       userFavorites: data

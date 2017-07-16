@@ -13,8 +13,11 @@ class FavoriteList extends Component {
     })
 
     return (
-      <section className="movie-list">
-        {favMovieCardArray}
+      <section className="favorite-list-component">
+        <h2>Favorites</h2>
+        <div className="favorite-list">
+          {favMovieCardArray}
+        </div>
       </section>
     )
   }

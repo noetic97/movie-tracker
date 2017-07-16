@@ -35,9 +35,9 @@ const Header = (props) => {
       </div>
       <nav>
         <NavLink className="nav-link"
-                 to="/">New Releases</NavLink>
+        to="/">New Releases</NavLink>
         <NavLink className="nav-link"
-                 to="/favorites">Favorite Movies</NavLink>
+        to="/favorites">Favorite Movies</NavLink>
       </nav>
     </header>
   )

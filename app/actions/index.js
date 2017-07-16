@@ -36,6 +36,13 @@ export const moviesFetchDataSuccess = (movies) => {
   };
 }
 
+export const getLocalUser = () => {
+  return {
+    type: 'CHECK_LOCAL_USER',
+    userCreds: JSON.parse(localStorage.getItem('userCreds'))
+  }
+}
+
 export const fetchCreateUser = (data) => {
   return (dispatch) => {
     fetch('api/users/new',
@@ -96,6 +103,16 @@ export const fetchLoginUser = (data) => {
     .then((response) => response.json())
     .then((formData) => {
       dispatch(fetchHasErrored(false))
+      console.log(JSON.stringify({email: formData.data.email, password: formData.data.password}));
+      localStorage.setItem('userCreds', JSON.stringify(
+        {data: {
+          email: formData.data.email,
+          password: formData.data.password,
+          name: formData.data.name
+        }}
+
+        )
+      )
       dispatch(loginUser(formData))
       dispatch(fetchUserFavorites(formData.data.id))
     })

@@ -2,34 +2,34 @@ import React, { Component } from 'react'
 
 class Register extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       name: '',
       email: '',
       password: '',
       passwordVerify: ''
-    }
+    };
   }
 
   handleChange(e) {
-    const key = e.target.name
-    this.setState({[key]: e.target.value})
+    const key = e.target.name;
+    this.setState({[key]: e.target.value});
   }
 
   handleSubmit(e) {
-    e.preventDefault()
-    this.props.regCreds(this.state)
+    e.preventDefault();
+    this.props.regCreds(this.state);
     setTimeout(() => {
       if (this.props.successMsg) {
-        this.props.history.push('/login')
+        this.props.history.push('/login');
       }}, 1000);
   }
 
   render() {
-    const errorClass = this.props.fetchErr ? "invalid-true" : "invalid-false"
+    const errorClass = this.props.fetchErr ? 'invalid-true' : 'invalid-false';
     return (
       <div className='register-component'>
-        <form className="register-form" onSubmit={(e) => this.handleSubmit(e)}>
+        <form className='register-form' onSubmit={(e) => this.handleSubmit(e)}>
           <h1>Register</h1>
           <input type='text'
             className='input-name'
@@ -60,7 +60,7 @@ class Register extends Component {
           <input className='input-submit' type='submit'/>
         </form>
       </div>
-    )
+    );
   }
 }
 

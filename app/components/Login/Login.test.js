@@ -15,12 +15,12 @@ describe('Login component', () => {
     const component = shallow(<Login submitCreds={mockFn}/>);
     const submitBtn = component.find('form');
 
-    expect(mockFn).toHaveBeenCalledTimes(0)
+    expect(mockFn).toHaveBeenCalledTimes(0);
 
     submitBtn.simulate('submit', {
       preventDefault: () =>{}
     });
 
-    expect(mockFn).toHaveBeenCalledTimes(1)
-  })
-})
+    expect(mockFn).toHaveBeenCalledTimes(1);
+  });
+});

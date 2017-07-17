@@ -47,7 +47,7 @@ body {
   text-align: center;
   display: grid;
   grid-row-gap: 40px;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   animation: fadein linear 350ms;
 }
 

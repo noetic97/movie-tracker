@@ -39,7 +39,7 @@ export const moviesFetchDataSuccess = (movies) => {
 export const getLocalUser = () => {
   return {
     type: 'CHECK_LOCAL_USER',
-    userCreds: JSON.parse(localStorage.getItem('userCreds'))
+    userCreds: localStorage.getItem('userCreds')
   };
 };
 
@@ -80,6 +80,7 @@ export const createUser = (userCreds) => {
 };
 
 export const fetchLoginUser = (data) => {
+  console.log(data, 'in fetchlogin');
   return (dispatch) => {
     fetch('api/users/', {
       method: 'POST',

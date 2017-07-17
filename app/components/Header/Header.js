@@ -19,7 +19,10 @@ const Header = (props) => {
   const logoutContainer = (
     <div className='logout-container'>
       <span className='welcomeMsg'>Welcome back, {name}</span>
-      <button className='logout-btn' onClick={() => props.logUserOut()}>Logout</button>
+      <button className='logout-btn' onClick={() => {
+        props.logUserOut();
+        localStorage.removeItem('userCreds');
+      }}>Logout</button>
     </div>
   );
 

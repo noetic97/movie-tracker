@@ -18,14 +18,18 @@ class Register extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    if(this.state.password !== this.state.passwordVerify) {
-      alert('Your passwords don\'t match.');
+    if(!this.state.password){
+      alert('Please create a password');
     } else {
-      this.props.regCreds(this.state);
-      setTimeout(() => {
-        if (this.props.successMsg) {
-          this.props.history.push('/login');
-        }}, 1000);
+      if(this.state.password !== this.state.passwordVerify) {
+        alert('Your passwords don\'t match.');
+      } else {
+        this.props.regCreds(this.state);
+        setTimeout(() => {
+          if (this.props.successMsg) {
+            this.props.history.push('/login');
+          }}, 1000);
+      }
     }
   }
 

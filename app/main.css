@@ -415,7 +415,7 @@ body {
     opacity: 0;
   }
   to {
-    height: 429px;
+    height: 369px;
     transform: scaley(1);
     opacity: 1;
   }

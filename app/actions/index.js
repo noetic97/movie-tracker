@@ -80,7 +80,6 @@ export const createUser = (userCreds) => {
 };
 
 export const fetchLoginUser = (data) => {
-  console.log(data, 'in fetchlogin');
   return (dispatch) => {
     fetch('api/users/', {
       method: 'POST',

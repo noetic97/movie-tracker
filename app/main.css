@@ -40,14 +40,14 @@ body {
 .movie-list {
   display: grid;
   grid-row-gap: 40px;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   animation: fadein linear 350ms;
 }
 .favorite-list {
   text-align: center;
   display: grid;
   grid-row-gap: 40px;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   animation: fadein linear 350ms;
 }
 
@@ -120,19 +120,26 @@ body {
 }
 
 .movie-card .favorite-btn {
+  font-size: 20px;
+  outline: none;
   border: none;
-  background-color: gold;
+  border-radius: 100px;
+  background-color: #5281a4;
   transition: 200ms;
   position: absolute;
-  right: 20px;
-  top: -10px;
+  right: 6%;
+  top: -2%;
+  box-shadow: 2px 2px 4px rgba(0,0,0,.25);
 }
 .movie-card .favorite-btn:hover {
   cursor: pointer;
-  background-color: purple;
+  background-color: #fce723;
 }
 .movie-card .favorite-btn.active {
-  background-color: lime;
+  background-color: #fce723;
+}
+.movie-card .favorite-btn.active:hover {
+  background-color: #5281a4;
 }
 
 
@@ -147,8 +154,9 @@ body {
 
 .header .header-top {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  flex-direction: column;
+  margin-bottom: 20px;
 }
 
 .header nav {
@@ -234,7 +242,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 50px;
+  padding: 20px;
   background: #fff;
   border-radius: 10px;
 }
@@ -242,14 +250,14 @@ body {
 .login-component .input-email,
 .login-component .input-password {
   margin-bottom: 20px;
-  width: 300px;
+  width: 250px;
   height: 30px;
   padding: 4px;
   font-size: 14px;
 }
 
 .login-component .input-submit {
-  width: 300px;
+  width: 250px;
   height: 30px;
   font-size: 14px;
   border: 2px solid transparent;
@@ -285,7 +293,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 50px;
+  padding: 20px;
   background: #fff;
   border-radius: 10px;
 }
@@ -294,14 +302,14 @@ body {
 .register-component .input-name,
 .register-component .input-password {
   margin-bottom: 20px;
-  width: 300px;
+  width: 250px;
   height: 30px;
   padding: 4px;
   font-size: 14px;
 }
 
 .register-component .input-submit {
-  width: 300px;
+  width: 250px;
   height: 30px;
   font-size: 14px;
   border: 2px solid transparent;
@@ -327,6 +335,42 @@ body {
   display: none;
 }
 
+/*=======================================
+>>>>>>   M E D I A  Q U E R I E S  <<<<<<
+========================================*/
+
+
+@media (min-width: 575px) {
+  .header .header-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .movie-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .favorite-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .login-component .input-email,
+  .login-component .input-password {
+    width: 300px;
+  }
+
+  .login-component .input-submit {
+    width: 300px;
+  }
+  .register-component .input-email,
+  .register-component .input-name,
+  .register-component .input-password {
+    width: 300px;
+  }
+
+  .register-component .input-submit {
+    width: 300px;
+  }
+}
 
 @media (min-width: 750px) {
   .movie-list {
@@ -346,6 +390,11 @@ body {
   }
 }
 
+
+/*=======================================
+>>>>>>>>    K E Y F R A M E S    <<<<<<<<
+========================================*/
+
 @keyframes growBox-login {
   from {
     height: 0px;
@@ -353,7 +402,7 @@ body {
     opacity: 0;
   }
   to {
-    height: 305px;
+    height: 245px;
     transform: scaley(1);
     opacity: 1;
   }

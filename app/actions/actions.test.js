@@ -1,6 +1,28 @@
 import * as actions from '../actions';
 
+import fetchMock from 'fetch-mock';
+import React from 'react';
+import { mount  } from 'enzyme';
+import { Provider } from 'react-redux';
+import configureMockStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+import apiKey from '../APIkey';
+
 describe('actions', () => {
+
+  it.skip('fetchMovieData should return a successful fetch', async () => {
+    const movieUrl = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`
+    const resolveAfter2Seconds = () => new Promise(resolve => setTimeout(() => resolve(), 2000))
+    console.log(fetchMock.get(movieUrl, { status: 200, body: {successMsg: 'YAY' }}));
+    fetchMock.get(movieUrl, { status: 200, body: {successMsg: 'YAY' }})
+
+    await resolveAfter2Seconds()
+
+    expect(fetchMock.called()).toBe(true)
+
+
+  })
+
   it('fetchHasErrored should return a boolean', () => {
     const fetchError = true;
     const expectedState =  {

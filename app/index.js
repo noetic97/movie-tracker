@@ -10,13 +10,13 @@ import rootReducer from './reducers/rootReducer';
 
 const history = createHistory();
 const middleWare = [routerMiddleware(history), thunk];
-const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
 const store = createStore(
   rootReducer,
   devTools,
   applyMiddleware(...middleWare)
-)
+);
 
 ReactDOM.render(
   <Provider store={store}>
@@ -24,4 +24,4 @@ ReactDOM.render(
       <App />
     </ConnectedRouter>
   </Provider>, document.getElementById('main')
-)
+);

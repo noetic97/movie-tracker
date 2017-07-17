@@ -5,11 +5,11 @@ import { userReg } from './register-reducer';
 import { loggedIn } from './loggedIn-reducer';
 
 export default combineReducers({
-    movies,
-    fetchHasErrored,
-    fetchIsLoading,
-    userCreds,
-    userReg,
-    loggedIn,
-    userFavorites
+  movies,
+  fetchHasErrored,
+  fetchIsLoading,
+  userCreds,
+  userReg,
+  loggedIn,
+  userFavorites
 });

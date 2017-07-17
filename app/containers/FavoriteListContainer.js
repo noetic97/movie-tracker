@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchUserFavorites } from '../actions';
+import { getLocalUser, fetchLoginUser } from '../actions';
 import FavoriteList from '../components/FavoriteList/FavoriteList';
 
 const mapStateToProps = (state) => {
@@ -7,8 +7,20 @@ const mapStateToProps = (state) => {
 
   return {
     favMovies,
-    loggedIn: state.loggedIn
+    loggedIn: state.loggedIn,
+    userCreds: state.userCreds.data
   };
 };
 
-export default connect(mapStateToProps, null)(FavoriteList);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    submitCreds: (userCreds) => {
+      dispatch(fetchLoginUser(userCreds));
+    },
+    getLocalUser: () => {
+      dispatch(getLocalUser());
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(FavoriteList);

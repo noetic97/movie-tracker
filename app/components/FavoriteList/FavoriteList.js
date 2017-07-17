@@ -6,6 +6,18 @@ class FavoriteList extends Component {
     super();
   }
 
+  componentDidMount() {
+    const fromLocal = localStorage.getItem('userCreds') ?
+                      localStorage.getItem('userCreds') : '';
+
+    if (fromLocal.length) {
+      this.props.getLocalUser();
+      setTimeout(() => {
+        this.props.submitCreds(this.props.userCreds);
+      }, 1000);
+    }
+  }
+
   render() {
     const favMovieCardArray = this.props.favMovies.map((movie) => {
       return <MovieCardContainer movieData={ movie }

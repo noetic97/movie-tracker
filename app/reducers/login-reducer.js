@@ -3,10 +3,7 @@ export const userCreds = (state = {}, action) => {
   case 'LOGIN_USER':
     return action.userCreds;
   case 'CHECK_LOCAL_USER':
-    action.userCreds = JSON.parse(localStorage.getItem('userCreds'));
-  // console.log(JSON.parse(localStorage.getItem('userCreds')));
-  console.log(action.userCreds);
-    return action.userCreds || {};
+    return JSON.parse(localStorage.getItem('userCreds')) || {};
   case 'LOGGED_OUT_USER':
     return {};
   default:

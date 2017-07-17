@@ -6,15 +6,15 @@ const mapStateToProps = (state) => {
   return {
     successMsg: state.userCreds.status,
     fetchErr: state.fetchHasErrored
-  }
-}
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
     submitCreds: (userCreds) => {
-      dispatch(fetchLoginUser(userCreds))
+      dispatch(fetchLoginUser(userCreds));
     }
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

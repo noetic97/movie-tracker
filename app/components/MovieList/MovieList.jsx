@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import MovieCardContainer from '../../containers/MovieCardContainer'
-import apiKey from '../../APIkey'
+import MovieCardContainer from '../../containers/MovieCardContainer';
+import apiKey from '../../APIkey';
 
 class MovieList extends Component {
   constructor() {
-    super()
+    super();
   }
 
   componentDidMount() {
@@ -17,17 +17,17 @@ class MovieList extends Component {
     const movieCardArray = this.props.movieData.map((movie) => {
       return <MovieCardContainer history={this.props.history}
                                  movieData={ movie }
-                                 key={movie.id} />
-    })
+                                 key={movie.id} />;
+    });
 
     return (
-      <section className="movie-list-component">
+      <section className='movie-list-component'>
         <h2>New Releases</h2>
-        <div className="movie-list">
+        <div className='movie-list'>
           {movieCardArray}
         </div>
       </section>
-    )
+    );
   }
 }
 

@@ -7,21 +7,21 @@ const mapStateToProps = (state) => {
   return {
     movieData: state.movies,
     userCreds: state.userCreds.data
-  }
-}
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
     getMovieData: (url) => {
-      dispatch(fetchMovieData(url))
+      dispatch(fetchMovieData(url));
     },
     submitCreds: (userCreds) => {
-      dispatch(fetchLoginUser(userCreds))
+      dispatch(fetchLoginUser(userCreds));
     },
     getLocalUser: () => {
-      dispatch(getLocalUser())
+      dispatch(getLocalUser());
     }
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(MovieList)
+export default connect(mapStateToProps, mapDispatchToProps)(MovieList);

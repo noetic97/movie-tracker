@@ -12,7 +12,7 @@ const mockStore = configureMockStore()({
     email: '',
     password: ''
   }
-  });
+});
 
 const setup = () => {
   const Container = mount(<Provider store={mockStore}><RegisterContainer /></Provider>);
@@ -22,8 +22,8 @@ const setup = () => {
   return {
     Container,
     Component
-  }
-}
+  };
+};
 
 describe('RegisterContainer', () => {
   const { Container, Component } = setup();
@@ -34,4 +34,4 @@ describe('RegisterContainer', () => {
   it('should pass down the correct action creators', () => {
     expect(Object.keys(Component.props())).toContain('regCreds');
   });
-})
+});

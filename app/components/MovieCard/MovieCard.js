@@ -2,6 +2,7 @@ import React from 'react';
 // import './MovieCard.css';
 
 const MovieCard = ({ movieData, addToFavorites, userData, retrieveFavorites, userFavorites, removeFromFavorites, loggedIn, history}) => {
+
   const movieGenres = movieData.genre_ids ? movieData.genre_ids.map(genre => <li key={genre} className="genre">{genre}</li>) : null
 
   const addFavorite = (movieData, userData) => {

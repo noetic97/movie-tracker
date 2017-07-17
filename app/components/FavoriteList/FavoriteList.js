@@ -9,9 +9,8 @@ class FavoriteList extends Component {
   render() {
     const favMovieCardArray = this.props.favMovies.map((movie) => {
       return <MovieCardContainer movieData={ movie }
-                        key={movie.id} />
+                                 key={movie.id} />
     })
-
     return (
       <section className="favorite-list-component">
         <h2>Favorites</h2>

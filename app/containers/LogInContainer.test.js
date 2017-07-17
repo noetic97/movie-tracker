@@ -26,7 +26,6 @@ const setup = () => {
 
 describe('LoginContainer', () => {
   const { Container, Component } = setup();
-
   it('should pass the appropriate props from state', () => {
     expect(Object.keys(Component.props())).toContain('successMsg', 'fetchErr');
   });

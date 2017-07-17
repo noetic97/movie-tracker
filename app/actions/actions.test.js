@@ -1,5 +1,4 @@
 import * as actions from '../actions';
-
 import fetchMock from 'fetch-mock';
 import React from 'react';
 import { mount  } from 'enzyme';
@@ -19,8 +18,6 @@ describe('actions', () => {
     await resolveAfter2Seconds()
 
     expect(fetchMock.called()).toBe(true)
-
-
   })
 
   it('fetchHasErrored should return a boolean', () => {

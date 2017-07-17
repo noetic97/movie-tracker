@@ -2,22 +2,21 @@ import React from 'react';
 import { mount  } from 'enzyme';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
-import RegisterContainer from './RegisterContainer';
-import Register from '../components/Register/Register';
+import MovieCardContainer from './MovieCardContainer';
+import MovieCard from '../components/MovieCard/MovieCard';
 import thunk from 'redux-thunk';
 
 const mockStore = configureMockStore()({
-  userReg: {
-    name: '',
-    email: '',
-    password: ''
-  }
+  userFavorites: [],
+  loggedIn: false,
+  userCreds: {},
+  movieData: []
   });
 
 const setup = () => {
-  const Container = mount(<Provider store={mockStore}><RegisterContainer /></Provider>);
+  const Container = mount(<Provider store={mockStore}><MovieCardContainer /></Provider>);
 
-  const Component = Container.find(Register);
+  const Component = Container.find(MovieCard);
 
   return {
     Container,
@@ -25,7 +24,7 @@ const setup = () => {
   }
 }
 
-describe('RegisterContainer', () => {
+describe('MovieCardContainer', () => {
   const { Container, Component } = setup();
   it('should pass the appropriate props from state', () => {
     expect(Object.keys(Component.props())).toContain('successMsg', 'fetchErr');

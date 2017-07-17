@@ -52,8 +52,6 @@ const MovieCard = ({ movieData, addToFavorites, userData, retrieveFavorites, use
     }
   }
 
-
-
   return(
     <div className='movie-card'>
       <img className='movie-poster'

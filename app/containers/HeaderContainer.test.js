@@ -23,8 +23,6 @@ const mockStore = configureMockStore()({
 const setup = () => {
   const Container = mount(<Provider store={mockStore} history={history}><HeaderContainer /></Provider>);
 
-  console.log(Container.debug());
-
   const Component = Container.find(Header);
 
   return {

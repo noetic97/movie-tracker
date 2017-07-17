@@ -7,10 +7,8 @@ import MovieCard from '../components/MovieCard/MovieCard';
 import thunk from 'redux-thunk';
 
 const mockStore = configureMockStore()({
-  userFavorites: [],
-  loggedIn: false,
-  userCreds: {},
-  movieData: []
+  userFavorites: {movieData: {genre_ids: []}}
+
   });
 
 const setup = () => {

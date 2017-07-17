@@ -12,7 +12,7 @@ describe('actions', () => {
   it.skip('fetchMovieData should return a successful fetch', async () => {
     const movieUrl = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`
     const resolveAfter2Seconds = () => new Promise(resolve => setTimeout(() => resolve(), 2000))
-    console.log(fetchMock.get(movieUrl, { status: 200, body: {successMsg: 'YAY' }}));
+
     fetchMock.get(movieUrl, { status: 200, body: {successMsg: 'YAY' }})
 
     await resolveAfter2Seconds()

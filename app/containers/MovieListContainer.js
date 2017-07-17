@@ -4,7 +4,6 @@ import MovieList from '../components/MovieList/MovieList';
 
 
 const mapStateToProps = (state) => {
-  // console.log('MLcont',state.userCreds.data);
   return {
     movieData: state.movies,
     userCreds: state.userCreds.data

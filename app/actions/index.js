@@ -103,7 +103,6 @@ export const fetchLoginUser = (data) => {
     .then((response) => response.json())
     .then((formData) => {
       dispatch(fetchHasErrored(false))
-      console.log(JSON.stringify({email: formData.data.email, password: formData.data.password}));
       localStorage.setItem('userCreds', JSON.stringify(
         {data: {
           email: formData.data.email,

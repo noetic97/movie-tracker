@@ -1,16 +1,20 @@
 // const Server = require('./server');
+require('dotenv').config();
 const path = require('path');
 const express = require('express');
 const cors = require('express-cors');
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser'); // middleware that parses json in body
 const port = (process.env.PORT || 3000);
 const app = express();
 const users = require('./routes/usersApi');
 
 app.use(cors());
+// query parser
 app.use(bodyParser.urlencoded({ extended: true }));
+// I want json for the body
 app.use(bodyParser.json());
 
+// if not in production, use webpack
 if (process.env.NODE_ENV !== 'production') {
   const webpack = require('webpack');
   const webpackDevMiddleware = require('webpack-dev-middleware');
@@ -27,10 +31,10 @@ if (process.env.NODE_ENV !== 'production') {
 
 app.use(express.static('app'));
 
-app.get('/', function (req, res) { res.sendFile(path.join(__dirname, '/index.html')) });
+app.get('/', function (req, res) { res.sendFile(path.join(__dirname, '/index.html')); });
 
 app.use('/api', users);
-app.get('/*', function (req, res) { res.sendFile(path.join(__dirname, '/index.html')) });
+app.get('/*', function (req, res) { res.sendFile(path.join(__dirname, '/index.html')); });
 
 app.listen(port);
 

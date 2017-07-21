@@ -18,7 +18,7 @@ class Register extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    if(!this.state.password){
+    if(!this.state.password) {
       alert('Please create a password');
     } else {
       if(this.state.password !== this.state.passwordVerify) {

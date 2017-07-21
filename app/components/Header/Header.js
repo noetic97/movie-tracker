@@ -29,7 +29,9 @@ const Header = (props) => {
   return (
     <header className='header'>
       <div className='header-top'>
-        <h1 className='logo'>MOVIE TRACKER</h1>
+
+        <h1 className='logo'><NavLink to='/'>MOVIE TRACKER</NavLink></h1>
+
         {props.loggedIn ? logoutContainer : loginSignupBtns}
       </div>
       <nav>

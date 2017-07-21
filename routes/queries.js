@@ -5,7 +5,9 @@ var options = {
 };
 
 var pgp = require('pg-promise')(options);
-var connectionString = 'postgres://localhost:5432/users';
+pgp.pg.defaults.poolSize = 20;
+pgp.pg.defaults.ssl = true;
+var connectionString = process.env.DATABASE_URL + '?ssl=true';
 var db = pgp(connectionString);
 
 function getAllUsers(req, res, next) {
@@ -17,14 +19,14 @@ function getAllUsers(req, res, next) {
         message: 'Retrieved All Users'
       });
     }).catch(function(err) {
-      return next(err)
-  });
+      return next(err);
+    });
 }
 
 function signIn(req, res, next) {
   db.one('select * from users where email=${email} and password=${password}', req.body)
   .then(function (data) {
-  res.status(200)
+    res.status(200)
     .json({
       status: 'success',
       data: data,

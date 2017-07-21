@@ -151,6 +151,10 @@ body {
   margin: 0;
   font-size: 40px;
 }
+.header .logo a {
+  color: #fff;
+  text-decoration: none;
+}
 
 .header .header-top {
   display: flex;

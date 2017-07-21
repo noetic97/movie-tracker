@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import MovieCardContainer from '../../containers/MovieCardContainer';
-import apiKey from '../../APIkey';
+// import apiKey from '../../APIkey';
 
 class MovieList extends Component {
   constructor() {
@@ -8,7 +8,7 @@ class MovieList extends Component {
   }
 
   componentDidMount() {
-    this.props.getMovieData(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`);
+    this.props.getMovieData(`/api/movies`);
     const fromLocal = localStorage.getItem('userCreds') ?
                       localStorage.getItem('userCreds') : '';
 

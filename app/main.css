@@ -171,12 +171,9 @@ body {
 }
 
 .header .nav-link {
-
-}
-.header .nav-link {
   color: #fff;
   font-size: 18px;
-  width: 130px;
+  width: 140px;
   height: 40px;
   border: none;
   background-color: #3d6481;
